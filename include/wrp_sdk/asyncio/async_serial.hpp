@@ -38,13 +38,14 @@
 #include <deque>
 #include <functional>
 
-#include "asio.hpp"
+#include <boost/asio.hpp>
 
 #include "wrp_sdk/asyncio/device_error.hpp"
 #include "wrp_sdk/asyncio/msg_buffer.hpp"
 
 namespace westonrobot
 {
+using namespace boost;
 using steady_clock = std::chrono::steady_clock;
 using lock_guard = std::lock_guard<std::recursive_mutex>;
 

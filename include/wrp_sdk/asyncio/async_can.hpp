@@ -36,14 +36,15 @@
 #include <functional>
 #include <iostream>
 
-#include "asio.hpp"
-#include "asio/posix/basic_stream_descriptor.hpp"
+#include <boost/asio.hpp>
+#include <boost/asio/posix/basic_stream_descriptor.hpp>
 
 // #include "async_io/device_error.hpp"
 // #include "async_io/msg_buffer.hpp"
 
 namespace westonrobot
 {
+using namespace boost;
 using steady_clock = std::chrono::steady_clock;
 using lock_guard = std::lock_guard<std::recursive_mutex>;
 

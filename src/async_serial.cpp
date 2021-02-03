@@ -35,8 +35,9 @@
 
 using namespace westonrobot;
 
-using asio::buffer;
-using asio::io_service;
+using boost::asio::buffer;
+using boost::asio::io_service;
+using namespace boost;
 using std::error_code;
 
 std::atomic<size_t> ASyncSerial::conn_id_counter{0};
