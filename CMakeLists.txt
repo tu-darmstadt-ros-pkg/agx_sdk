@@ -58,6 +58,12 @@ if(BUILD_WITHOUT_ROS)
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+else()
+    catkin_package(
+        LIBRARIES ${PROJECT_NAME}
+        INCLUDE_DIRS include
+        # DEPENDS rt pthread
+    )
 endif()
 
 # Build libraries
@@ -185,13 +191,6 @@ if(BUILD_WITHOUT_ROS) # BUILD_WITHOUT_ROS
     include(CPack)
 
 else() # BUILD_WITHOUT_ROS
-
-    catkin_package(
-        LIBRARIES ${PROJECT_NAME}
-        INCLUDE_DIRS include
-        # DEPENDS rt pthread
-    )
-
     ## Add catkin install targets
     install(TARGETS ${PROJECT_NAME}
       RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
